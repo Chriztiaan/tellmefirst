@@ -8,7 +8,7 @@ export const useQuestionnaireStore = defineStore('questionnaire', {
         questionnaire: undefined as Questionnaire | undefined,
         questions: [] as Question[],
         loading: false,
-        questionsLoading: false,
+        questionsLoading: false
     }),
 
     actions: {
@@ -42,5 +42,33 @@ export const useQuestionnaireStore = defineStore('questionnaire', {
 
             this.questionsLoading = false;
         },
-    },
+        async upsertQuestionnaire(questionnaire: Questionnaire): Promise<void> {
+            this.loading = true;
+
+            const { data, error } = await supabase.from('questionnaires').upsert(questionnaire).select().single();
+
+            if (!error && !!data) {
+                this.questionnaire = data;
+            } else {
+                console.log(error);
+            }
+
+            this.loading = false;
+        },
+        async upsertQuestion(question: Question): Promise<void> {
+            const { data, error } = await supabase.from('questions').upsert(question).select().single();
+
+            if (!error && !!data) {
+                const q = this.questions.find((q) => q.id == data.id);
+                if (q) {
+                    Object.assign(q, data);
+                } else {
+                    this.questions.push(data);
+                }
+                Object.assign(question, data);
+            } else {
+                console.log(error);
+            }
+        }
+    }
 });

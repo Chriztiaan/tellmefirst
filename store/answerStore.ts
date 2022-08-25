@@ -10,7 +10,7 @@ export const useAnswerStore = defineStore('answer', {
         // Contains answers per answer set
         answers: [] as Array<{ key: string; answers: Answer[] }>,
         // Contains mappings between answers and their questions
-        questions: [] as Array<{ answerId: string; question: Question }>,
+        questions: [] as Array<{ answerId: string; question: Question }>
     }),
 
     actions: {
@@ -65,5 +65,26 @@ export const useAnswerStore = defineStore('answer', {
                 console.log(error);
             }
         },
-    },
+        async upsertAnswer(answer: Answer): Promise<void> {
+            this.loading = true;
+
+            const { data, error } = await supabase.from('answers').upsert(answer).select().single();
+
+            if (!error && !!data) {
+                const answersSetEntry = this.answers.find((list) => list.key == data.answer_set_id);
+                if (answersSetEntry) {
+                    const answerEntry = answersSetEntry.answers.find((a) => a.id == data.id);
+                    if (answerEntry) {
+                        Object.assign(answerEntry, data);
+                    } else {
+                        answersSetEntry.answers.push(data);
+                    }
+                }
+            } else {
+                console.log(error);
+            }
+
+            this.loading = false;
+        }
+    }
 });

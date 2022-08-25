@@ -6,7 +6,7 @@ import { Profile } from './types/DatabaseModels';
 export const useProfileStore = defineStore('profile', {
     state: () => ({
         profile: undefined as Profile | undefined,
-        loading: false,
+        loading: false
     }),
 
     actions: {
@@ -24,5 +24,18 @@ export const useProfileStore = defineStore('profile', {
 
             this.loading = false;
         },
-    },
+        async upsertProfile(profile: Profile): Promise<void> {
+            this.loading = true;
+
+            const { data, error } = await supabase.from('profiles').upsert(profile).select().single();
+
+            if (!error && !!data) {
+                this.profile = data;
+            } else {
+                console.log(error);
+            }
+
+            this.loading = false;
+        }
+    }
 });
