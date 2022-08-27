@@ -34,7 +34,7 @@ $btn-sizes: (
 
 $material-light: (
   'text-fields': (
-    'outlined':  var(--v-background-base),
+    // 'outlined':  var(--v-background-base),
     'outlined-hover': var(--v-primary-base)
   ),
 );
@@ -60,8 +60,13 @@ $material-light: (
 	input,
 	.v-select__selection {
 		color: var(--v-text-base) !important;
-		font-weight: 700 !important;
+		font-weight: 500 !important;
 	}
+
+  fieldset {
+    // color: #D7DADC !important;
+  }
+
 }
 
 .theme--light.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
