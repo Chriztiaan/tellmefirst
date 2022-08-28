@@ -23,10 +23,12 @@
                 </div>
             </v-col>
             <v-col class="" cols="12" md="6" style="max-width: 853px">
-                <dashboard v-if="isDashboard" />
-                <questions v-else-if="isQuestions" />
-                <answers v-else-if="isAnswers" />
-                <profile v-else-if="isProfile" />
+                <div style="max-width: 487px">
+                    <dashboard v-if="isDashboard" />
+                    <questions v-else-if="isQuestions" />
+                    <answers v-else-if="isAnswers" />
+                    <profile v-else-if="isProfile" />
+                </div>
             </v-col>
         </v-row>
     </v-container>
@@ -47,7 +49,7 @@ export default Vue.extend({
     data() {
         return {
             bool: true,
-            selectedPage: Page.questions,
+            selectedPage: Page.profile,
             Page
         };
     },

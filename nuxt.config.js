@@ -93,7 +93,7 @@ export default {
                     success: '#7ae378',
                     text: '#28262C',
                     subtext: '#ACA8BD',
-                    warning: colors.amber.base,
+                    warning: 'FF6049',
                     info: '#B2C7EF'
                 }
             },

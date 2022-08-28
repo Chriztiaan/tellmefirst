@@ -58,14 +58,11 @@ $material-light: (
 
 .v-text-field {
 	input,
-	.v-select__selection {
+	.v-select__selection, textarea {
 		color: var(--v-text-base) !important;
 		font-weight: 500 !important;
 	}
 
-  fieldset {
-    // color: #D7DADC !important;
-  }
 
 }
 

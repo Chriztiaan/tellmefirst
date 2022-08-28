@@ -9,15 +9,14 @@
                 <text-field placeholder="What would you like to ask?">{{ i + 1 }}.</text-field>
                 <icon-btn color="error" @click="removeQuestion(i)">mdi-trash-can</icon-btn>
             </div>
-            <v-tooltip right color="tertiary">
-                <template #activator="{ on }">
-                    <v-btn class="item mt-5" color="tertiary" outlined v-on="on" @click="addQuestion">
-                        <v-icon>mdi-plus</v-icon>
-                    </v-btn>
-                </template>
-                <span>Add another question</span>
-            </v-tooltip>
-            <div class="item mt-5 d-flex justify-end">
+
+            <v-btn v-ripple="false" class="pl-0" text plain width="220" @click="addQuestion">
+                <v-icon left class="primary--text">mdi-plus-circle-outline</v-icon>
+                <div class="primary--text link-btn">Add another question</div>
+            </v-btn>
+
+            <v-divider></v-divider>
+            <div class="d-flex justify-end">
                 <v-btn color="primary" width="150">Save</v-btn>
             </div>
         </div>
@@ -57,6 +56,9 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+.link-btn:hover {
+    text-decoration: underline;
+}
 .item {
     max-width: 430px;
 }
