@@ -61,7 +61,7 @@ export default Vue.extend({
             return useProfileStore().profile;
         },
         profileLoading(): boolean {
-            return useProfileStore().loading;
+            return useProfileStore().retrieving;
         },
         questionnaire(): Questionnaire | undefined {
             return useQuestionnaireStore().questionnaire;

@@ -6,13 +6,14 @@ import { Profile } from './types/DatabaseModels';
 export const useProfileStore = defineStore('profile', {
     state: () => ({
         profile: undefined as Profile | undefined,
-        loading: false
+        retrieving: false,
+        updating: false
     }),
 
     actions: {
         async retrieveProfile(userId = ''): Promise<void> {
             const derivedUserId = userId || useAuthStore().userId;
-            this.loading = true;
+            this.retrieving = true;
 
             const { data, error } = await supabase.from('profiles').select().match({ user_id: derivedUserId }).limit(1).single();
 
@@ -22,10 +23,10 @@ export const useProfileStore = defineStore('profile', {
                 console.log(error);
             }
 
-            this.loading = false;
+            this.retrieving = false;
         },
         async upsertProfile(profile: Profile): Promise<void> {
-            this.loading = true;
+            this.updating = true;
 
             const { data, error } = await supabase.from('profiles').upsert(profile).select().single();
 
@@ -35,7 +36,7 @@ export const useProfileStore = defineStore('profile', {
                 console.log(error);
             }
 
-            this.loading = false;
+            this.updating = false;
         }
     }
 });
