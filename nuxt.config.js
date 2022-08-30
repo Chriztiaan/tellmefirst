@@ -87,6 +87,7 @@ export default {
                     tertiary: '#c5adfb',
                     accent: '#8eace7',
 
+                    'app-background': '#FFFFFF',
                     background: '#F9F5FF',
 
                     error: '#e68989',

@@ -7,7 +7,9 @@ export const useProfileStore = defineStore('profile', {
     state: () => ({
         profile: undefined as Profile | undefined,
         retrieving: false,
-        updating: false
+        updating: false,
+        profilePicture: '',
+        loadingProfilePicture: false
     }),
 
     actions: {
@@ -37,6 +39,37 @@ export const useProfileStore = defineStore('profile', {
             }
 
             this.updating = false;
+        },
+        async uploadProfilePicture(file: File): Promise<void> {
+            this.loadingProfilePicture = true;
+            this.profilePicture = '';
+
+            const derivedUserId = useAuthStore().userId;
+            const { data, error } = await supabase.storage.from('avatars').upload('public/' + derivedUserId, file, {
+                cacheControl: '3600',
+                upsert: true
+            });
+            console.log(data);
+            console.error(error);
+            this.retrieveProfilePicture();
+        },
+        async retrieveProfilePicture(): Promise<void> {
+            this.loadingProfilePicture = true;
+            const derivedUserId = useAuthStore().userId;
+
+            const { data, error } = await supabase.storage.from('avatars').createSignedUrl('public/' + derivedUserId, 60);
+            // await supabase.storage.from('avatars').
+
+            if (!error && data.signedUrl) {
+                this.profilePicture = data.signedUrl;
+                console.log(this.profilePicture);
+            } else {
+                this.profilePicture = '';
+                console.log(this.profilePicture);
+                console.error(error);
+            }
+
+            this.loadingProfilePicture = false;
         }
     }
 });
