@@ -55,10 +55,20 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .link-btn:hover {
     text-decoration: underline;
 }
+
+.theme--dark {
+    .link-btn {
+        color: var(--v-text-base) !important;
+    }
+    .v-icon {
+        color: var(--v-text-base) !important;
+    }
+}
+
 .item {
     max-width: 430px;
 }

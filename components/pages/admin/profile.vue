@@ -10,12 +10,10 @@
                 <div v-else style="position: relative" class="wfc">
                     <!-- {{ profilePicture }} -->
                     <!-- https://scontent-jnb1-1.xx.fbcdn.net/v/t1.6435-1/40541205_10217034470244772_6784445055043108864_n.jpg?stp=dst-jpg_p200x200&_nc_cat=104&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeEJYrvtm1iWtbIyKEn5nvAWjIqcetJSCEeMipx60lIIRy2LKTANO8VUODMtQr63bYY&_nc_ohc=hvxI9SYsBy8AX9aTEde&_nc_ht=scontent-jnb1-1.xx&oh=00_AT8AtF1SOlRm62wKllrqaZLszK348-Y-KsWiso1Xq8AsHA&oe=6331E29F -->
-                    <v-img :src="profilePicture" alt="John" width="150" height="150" class="rounded-circle" />
+                    <v-img :src="profilePicture" alt="John" width="150" height="150" class="rounded-circle profile-picture" />
 
                     <v-btn
-                        color="white"
-                        class="text lighten-1"
-                        outlined
+                        class="text app-background--text lighten-1"
                         icon
                         style="position: absolute; right: 2px; bottom: 12px; z-index: 100"
                         height="36"
@@ -42,7 +40,7 @@
             <text-field v-model="internalName" :disabled="updating" :loading="retrieving" placeholder="John Smith">Full name</text-field>
             <text-area v-model="internalBio" :disabled="updating" :loading="retrieving" placeholder="Tell us a bit more about yourself...">Bio</text-area>
 
-            <v-divider />
+            <v-divider class="" />
             <div class="d-flex justify-end">
                 <v-btn :disabled="retrieving && !updating" :loading="updating" color="primary" width="150" @click="save">Save</v-btn>
             </div>
@@ -122,17 +120,22 @@ export default Vue.extend({
         }
     },
     watch: {
-        name(): void {
-            this.internalName = this.name;
+        name: {
+            handler(): void {
+                this.internalName = this.name;
+            },
+            immediate: true
         },
-        bio(): void {
-            this.internalBio = this.bio;
+        bio: {
+            handler(): void {
+                this.internalBio = this.bio;
+            },
+            immediate: true
         },
         file(): void {
             if (!this.file) {
                 return;
             }
-            console.log(this.file);
             useProfileStore().uploadProfilePicture(this.file);
         }
     },
@@ -149,7 +152,12 @@ export default Vue.extend({
                 useProfileStore().upsertProfile(newProfile);
             }
         }
-        // profile(): void {}
     }
 });
 </script>
+
+<style scoped>
+.profile-picture {
+    border: 3px var(--v-tertiary-base) solid;
+}
+</style>

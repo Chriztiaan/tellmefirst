@@ -91,4 +91,11 @@ export default Vue.extend({
         color: var(--v-primary-base) !important;
     }
 }
+
+.theme--dark .selected.v-btn {
+    background: var(--v-primary-base) !important;
+    .v-icon {
+        color: var(--v-text-base) !important;
+    }
+}
 </style>

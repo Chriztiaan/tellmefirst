@@ -79,6 +79,12 @@
 .v-input--is-label-active.v-input--switch.v-input--dense .v-input--switch__thumb {
 	color: white !important;
 }
+
+.v-input--is-label-active.v-input--switch .v-input--switch__thumb {
+	color: white !important;
+}
+
+
 .v-label {
     color: var(--v-text-base) !important;
     font-weight: 600 !important;

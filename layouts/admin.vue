@@ -15,6 +15,12 @@
                     <v-spacer />
                 </template>
                 <div class="d-flex gap-3 align-center">
+                    <div class="d-flex align-center gap-2">
+                        <v-icon v-if="$vuetify.theme.dark">mdi-weather-night</v-icon>
+                        <v-icon v-else>mdi-white-balance-sunny</v-icon>
+                        <v-switch v-model="$vuetify.theme.dark" dense :dark="false" inset hide-details></v-switch>
+                    </div>
+
                     <v-btn icon height="24" width="24">
                         <v-icon color="text" size="20">mdi-bell-outline</v-icon>
                     </v-btn>
@@ -30,7 +36,7 @@
             </div>
         </v-app-bar>
         >
-        <v-main class="text--text" :class="{ 'main-mobile': isMobile, 'main-drawer': drawer }">
+        <v-main class="text--text app-background" :class="{ 'main-mobile': isMobile, 'main-drawer': drawer }">
             <v-main>
                 <v-container> <Nuxt /> </v-container>
             </v-main>
@@ -40,6 +46,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { isMobile } from '@/utils/screen';
 
 export default Vue.extend({
@@ -63,7 +70,8 @@ export default Vue.extend({
                 return 80;
             }
         }
-    }
+    },
+    methods: {}
 });
 </script>
 

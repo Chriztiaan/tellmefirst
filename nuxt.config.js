@@ -93,7 +93,23 @@ export default {
                     error: '#e68989',
                     success: '#7ae378',
                     text: '#28262C',
-                    subtext: '#ACA8BD',
+                    subtext: '#a39eb6',
+                    warning: 'FF6049',
+                    info: '#B2C7EF'
+                },
+                dark: {
+                    primary: '#8478bb',
+                    secondary: '#90e78e',
+                    tertiary: '#c5adfb',
+                    accent: '#8eace7',
+
+                    'app-background': '#28262C',
+                    background: '#F9F5FF',
+
+                    error: '#e68989',
+                    success: '#7ae378',
+                    text: '#FFFFFF',
+                    subtext: '#c5c2d1',
                     warning: 'FF6049',
                     info: '#B2C7EF'
                 }
