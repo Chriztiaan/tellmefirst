@@ -19,6 +19,7 @@
     "@supabase/supabase-js": "^2.0.0-rc.6",
     "@vue/eslint-config-prettier": "^7.0.0",
     "core-js": "^3.19.3",
+    "date-fns": "^2.29.2",
     "nuxt": "^2.15.8",
     "pinia": "^2.0.14",
     "uuid": "^8.3.2",

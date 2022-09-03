@@ -33,8 +33,8 @@ export interface Database {
                     contact_person: string | null;
                     email: string | null;
                     notes: string | null;
-                    salary: boolean;
-                    leave: boolean;
+                    salary: string | null;
+                    leave: string | null;
                     remote: number;
                     created_at: string | null;
                     phone_number: string | null;
@@ -46,8 +46,8 @@ export interface Database {
                     contact_person?: string | null;
                     email?: string | null;
                     notes: string | null;
-                    salary: boolean;
-                    leave: boolean;
+                    salary: string | null;
+                    leave: string | null;
                     remote: number;
                     created_at?: string | null;
                     phone_number?: string | null;
@@ -59,8 +59,8 @@ export interface Database {
                     contact_person?: string | null;
                     email?: string | null;
                     notes: string | null;
-                    salary: boolean;
-                    leave: boolean;
+                    salary: string | null;
+                    leave: string | null;
                     remote: number;
                     created_at?: string | null;
                     phone_number?: string | null;
