@@ -49,7 +49,7 @@ export default Vue.extend({
     data() {
         return {
             bool: true,
-            selectedPage: Page.profile,
+            selectedPage: Page.questions,
             Page
         };
     },

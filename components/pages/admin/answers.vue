@@ -84,11 +84,29 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { useAnswerStore } from '@/store/answerStore';
+import { AnswerSet } from '@/store/types/DatabaseModels';
 export default Vue.extend({
     data() {
         return {
-            viewEntry: 1 as number | undefined
+            viewEntry: 0 as number | undefined
         };
+    },
+    computed: {
+        retrieving(): boolean {
+            return useAnswerStore().loading;
+        },
+        answerSets(): AnswerSet[] {
+            return useAnswerStore().answerSets;
+        }
+    },
+    watch: {
+        answerSets(): void {
+            console.log(this.answerSets);
+        }
+    },
+    mounted() {
+        useAnswerStore().retrieveAnswerSets();
     },
     methods: {
         viewAnswers(index: number): void {

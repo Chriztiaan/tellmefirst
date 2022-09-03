@@ -1,9 +1,14 @@
 <template>
-    <v-btn :color="color" v-bind="$attrs" @click="$emit('click')">
-        <v-icon>
-            <slot>mdi-home</slot>
-        </v-icon>
-    </v-btn>
+    <div>
+        <div v-if="loading" class="d-flex align-center">
+            <v-skeleton-loader type="button"></v-skeleton-loader>
+        </div>
+        <v-btn v-else :color="color" v-bind="$attrs" @click="$emit('click')">
+            <v-icon>
+                <slot>mdi-home</slot>
+            </v-icon>
+        </v-btn>
+    </div>
 </template>
 
 <script lang="ts">
@@ -13,6 +18,10 @@ export default Vue.extend({
         color: {
             type: String,
             default: 'primary'
+        },
+        loading: {
+            type: Boolean,
+            default: false
         }
     }
 });
@@ -25,6 +34,12 @@ export default Vue.extend({
     min-width: 40px !important;
     max-width: 40px !important;
     padding: 0 !important;
+    border-radius: 10px;
+}
+
+:deep(.v-skeleton-loader__button) {
+    width: 40px !important;
+    height: 40px;
     border-radius: 10px;
 }
 </style>

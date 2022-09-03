@@ -4,7 +4,7 @@ import { supabase } from './setup/supabase';
 export const useAuthStore = defineStore('auth', {
     state: () => ({
         loggedIn: false,
-        userId: '92db24d4-5290-4819-9bac-7de8efe7d603',
+        userId: '92db24d4-5290-4819-9bac-7de8efe7d603'
     }),
 
     getters: {
@@ -29,6 +29,6 @@ export const useAuthStore = defineStore('auth', {
                     console.log('Auto logout', session);
                 }
             });
-        },
-    },
+        }
+    }
 });

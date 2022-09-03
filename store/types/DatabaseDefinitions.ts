@@ -32,6 +32,10 @@ export interface Database {
                     company: string | null;
                     contact_person: string | null;
                     email: string | null;
+                    notes: string | null;
+                    salary: boolean;
+                    leave: boolean;
+                    remote: number;
                     created_at: string | null;
                     phone_number: string | null;
                     user_id: string | null;
@@ -41,6 +45,10 @@ export interface Database {
                     company?: string | null;
                     contact_person?: string | null;
                     email?: string | null;
+                    notes: string | null;
+                    salary: boolean;
+                    leave: boolean;
+                    remote: number;
                     created_at?: string | null;
                     phone_number?: string | null;
                     user_id?: string | null;
@@ -50,6 +58,10 @@ export interface Database {
                     company?: string | null;
                     contact_person?: string | null;
                     email?: string | null;
+                    notes: string | null;
+                    salary: boolean;
+                    leave: boolean;
+                    remote: number;
                     created_at?: string | null;
                     phone_number?: string | null;
                     user_id?: string | null;
@@ -59,16 +71,25 @@ export interface Database {
                 Row: {
                     user_id: string;
                     title: string | null;
+                    salary: boolean;
+                    leave: boolean;
+                    remote: boolean;
                     created_at: string | null;
                 };
                 Insert: {
                     user_id: string;
                     title?: string | null;
+                    salary: boolean;
+                    leave: boolean;
+                    remote: boolean;
                     created_at?: string | null;
                 };
                 Update: {
                     user_id?: string;
                     title?: string | null;
+                    salary: boolean;
+                    leave: boolean;
+                    remote: boolean;
                     created_at?: string | null;
                 };
             };
@@ -103,19 +124,19 @@ export interface Database {
                     id: string;
                     created_at: string | null;
                     content: string | null;
-                    questionnaire_id: string;
+                    questionnaire_id: string | null;
                 };
                 Insert: {
                     id: string;
                     created_at?: string | null;
                     content?: string | null;
-                    questionnaire_id: string;
+                    questionnaire_id: string | null;
                 };
                 Update: {
                     id?: string;
                     created_at?: string | null;
                     content?: string | null;
-                    questionnaire_id?: string;
+                    questionnaire_id?: string | null;
                 };
             };
         };

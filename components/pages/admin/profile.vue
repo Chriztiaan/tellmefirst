@@ -41,7 +41,8 @@
             <text-area v-model="internalBio" :disabled="updating" :loading="retrieving" placeholder="Tell us a bit more about yourself...">Bio</text-area>
 
             <v-divider class="" />
-            <div class="d-flex justify-end">
+            <div class="d-flex justify-end gap-4">
+                <v-btn :disabled="retrieving || updating" text color="primary" width="150">Cancel</v-btn>
                 <v-btn :disabled="retrieving && !updating" :loading="updating" color="primary" width="150" @click="save">Save</v-btn>
             </div>
 
