@@ -4,10 +4,10 @@
             <v-col cols="12" md="2" class="d-flex flex-column align-center align-md-start">
                 <header-1 :class="{ 'ml-4': !isMobile }">Manage</header-1>
                 <div class="mt-4 d-flex flex-column align-center align-md-start gap-3 manage-btns">
-                    <v-btn text width="180" :class="{ selected: isDashboard }" class="f-18 w-500" @click="setPage(Page.dashboard)">
+                    <!-- <v-btn text width="180" :class="{ selected: isDashboard }" class="f-18 w-500" @click="setPage(Page.dashboard)">
                         <v-icon class="mr-4" color="tertiary" left size="24">mdi-view-dashboard</v-icon>
                         Dashboard
-                    </v-btn>
+                    </v-btn> -->
                     <v-btn text width="180" :class="{ selected: isQuestions }" class="f-18 w-500" @click="setPage(Page.questions)">
                         <v-icon class="mr-4" color="tertiary" left size="24">mdi-clipboard-text</v-icon>
                         Questions
@@ -80,7 +80,7 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.manage-btns .v-btn::v-deep {
+.manage-btns :deep(.v-btn) {
     justify-content: start;
 }
 

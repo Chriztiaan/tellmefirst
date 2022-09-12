@@ -18,7 +18,7 @@
                     <div class="d-flex align-center gap-2">
                         <v-icon v-if="$vuetify.theme.dark">mdi-weather-night</v-icon>
                         <v-icon v-else>mdi-white-balance-sunny</v-icon>
-                        <v-switch v-model="$vuetify.theme.dark" dense :dark="false" inset hide-details></v-switch>
+                        <v-switch v-model="$vuetify.theme.dark" dense :dark="false" inset hide-details @change="changeDarkMode"></v-switch>
                     </div>
 
                     <v-btn icon height="24" width="24">
@@ -71,7 +71,11 @@ export default Vue.extend({
             }
         }
     },
-    methods: {}
+    methods: {
+        changeDarkMode(): void {
+            localStorage.setItem('dark-mode', this.$vuetify.theme.dark + '');
+        }
+    }
 });
 </script>
 

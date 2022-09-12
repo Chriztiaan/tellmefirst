@@ -8,8 +8,6 @@
                     <v-progress-circular :size="100" :width="4" color="tertiary" indeterminate></v-progress-circular>
                 </div>
                 <div v-else style="position: relative" class="wfc">
-                    <!-- {{ profilePicture }} -->
-                    <!-- https://scontent-jnb1-1.xx.fbcdn.net/v/t1.6435-1/40541205_10217034470244772_6784445055043108864_n.jpg?stp=dst-jpg_p200x200&_nc_cat=104&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeEJYrvtm1iWtbIyKEn5nvAWjIqcetJSCEeMipx60lIIRy2LKTANO8VUODMtQr63bYY&_nc_ohc=hvxI9SYsBy8AX9aTEde&_nc_ht=scontent-jnb1-1.xx&oh=00_AT8AtF1SOlRm62wKllrqaZLszK348-Y-KsWiso1Xq8AsHA&oe=6331E29F -->
                     <v-img :src="profilePicture" alt="John" width="150" height="150" class="rounded-circle profile-picture" />
 
                     <v-btn
@@ -42,7 +40,7 @@
 
             <v-divider class="" />
             <div class="d-flex justify-end gap-4">
-                <v-btn :disabled="retrieving || updating" text color="primary" width="150">Cancel</v-btn>
+                <v-btn :disabled="retrieving || updating" text color="primary" width="150" @click="cancel">Cancel</v-btn>
                 <v-btn :disabled="retrieving && !updating" :loading="updating" color="primary" width="150" @click="save">Save</v-btn>
             </div>
 
@@ -81,6 +79,7 @@ export default Vue.extend({
             file: undefined as File | undefined,
             internalName: '',
             internalBio: '',
+
             // hackerman
             document
         };
@@ -145,6 +144,10 @@ export default Vue.extend({
         useProfileStore().retrieveProfilePicture();
     },
     methods: {
+        cancel(): void {
+            this.internalName = this.name;
+            this.internalBio = this.bio;
+        },
         save(): void {
             if (this.profile) {
                 const newProfile = structuredClone(this.profile);

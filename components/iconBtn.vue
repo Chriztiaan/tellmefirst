@@ -28,7 +28,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-::v-deep.v-btn {
+:deep(.v-btn) {
     height: 40px;
     width: 40px;
     min-width: 40px !important;

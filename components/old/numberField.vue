@@ -44,7 +44,7 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.count-input::v-deep {
+:deep(.count-input) {
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
