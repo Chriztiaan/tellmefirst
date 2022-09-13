@@ -9,8 +9,8 @@ export default {
 
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
-        titleTemplate: '%s - leave',
-        title: 'leave',
+        titleTemplate: '%s - Tell me first',
+        title: 'tellmefirst',
         htmlAttrs: {
             lang: 'en'
         },
@@ -31,15 +31,7 @@ export default {
 
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: {
-        dirs: [
-            '~/components',
-            '~/components/questions',
-            '~/components/text',
-            '~/components/input',
-            '~/components/pages/admin',
-            '~/components/pages/admin/answers',
-            '~/components/chips'
-        ]
+        dirs: ['~/components', '~/components/text', '~/components/input', '~/components/pages/admin', '~/components/pages/admin/answers', '~/components/chips']
     },
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
@@ -63,10 +55,10 @@ export default {
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
-    // axios: {
-    // 	// Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    // 	baseURL: '/',
-    // },
+    axios: {
+        // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
+        baseURL: '/'
+    },
     router: {
         base: '/tellmefirst/'
     },
