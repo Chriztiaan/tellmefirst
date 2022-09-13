@@ -34,6 +34,10 @@ export default {
         dirs: ['~/components', '~/components/text', '~/components/input', '~/components/pages/admin', '~/components/pages/admin/answers', '~/components/chips']
     },
 
+    generate: {
+        fallback: '404.html'
+    },
+
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
     buildModules: [
         // https://go.nuxtjs.dev/typescript
