@@ -10,7 +10,7 @@ export const useAnswerStore = defineStore('answer', {
         // Contains answers per answer set
         answers: [] as Array<{ key: string; answers: Answer[] }>,
         // Contains mappings between answers and their questions
-        questions: [] as Array<{ answerId: string; question: Question }>
+        pairs: [] as Array<{ answer: Answer; question: Question }>
     }),
 
     actions: {
@@ -36,7 +36,7 @@ export const useAnswerStore = defineStore('answer', {
                 this.answers.push({ key: answerSetId, answers: data });
                 console.log('answers');
                 console.log(data);
-                this.retrieveQuestionsForAnswers(data);
+                await this.retrieveQuestionsForAnswers(data);
             } else {
                 console.log(error);
             }
@@ -56,7 +56,7 @@ export const useAnswerStore = defineStore('answer', {
                 for (const answer of answers) {
                     const question = data.find((q) => q.id == answer.question_id);
                     if (question) {
-                        this.questions.push({ answerId: answer.id, question });
+                        this.pairs.push({ answer, question });
                     } else {
                         console.error("Question doesn't exist for answer:", answer.id);
                     }

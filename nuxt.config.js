@@ -37,9 +37,7 @@ export default {
             '~/components/text',
             '~/components/input',
             '~/components/pages/admin',
-            '~/components/pages/admin/workSetup',
-            '~/components/pages/admin/employees',
-            '~/components/pages/admin/leaveRequests',
+            '~/components/pages/admin/answers',
             '~/components/chips'
         ]
     },

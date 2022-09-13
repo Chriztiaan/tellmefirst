@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-app-bar flat app color="app-background" :height="height" :elevation="isMobile ? 1 : 0">
+        <v-app-bar :app="!isMobile" flat color="app-background" :height="height" :elevation="isMobile ? 1 : 0">
             <div class="px-12 d-flex flex-column justify-center justify-md-start flex-md-row align-center gap-3 py-4" style="width: 100%">
                 <div v-if="isMobile" class="d-flex justify-space-between width-100">
                     <v-img :src="require(`~/assets/leave.svg`)" max-height="50" max-width="50" />
@@ -35,7 +35,6 @@
                 </div>
             </div>
         </v-app-bar>
-        >
         <v-main class="text--text app-background" :class="{ 'main-mobile': isMobile, 'main-drawer': drawer }">
             <v-main>
                 <v-container> <Nuxt /> </v-container>
@@ -81,7 +80,8 @@ export default Vue.extend({
 
 <style scoped>
 .main-mobile {
-    margin-top: 55px;
+    margin-top: 0px !important;
+    padding-top: 0px !important;
 }
 .main-drawer {
     margin-top: 170px !important;

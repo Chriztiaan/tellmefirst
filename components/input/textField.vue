@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex flex-column gap-1">
+    <div class="d-flex flex-column gap-1 text-field">
         <header-5><slot>&nbsp;</slot></header-5>
         <div v-if="loading" class="d-flex align-center">
             <v-skeleton-loader type="chip" width="100%"></v-skeleton-loader>

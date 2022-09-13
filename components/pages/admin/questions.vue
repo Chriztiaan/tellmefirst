@@ -2,7 +2,7 @@
     <div class="d-flex flex-column">
         <header-1 class="primary--text">Questions</header-1>
 
-        <div class="d-flex flex-column gap-5" style="max-width: 487px">
+        <div class="d-flex flex-column gap-5">
             <text-field v-model="internalTitle" :disabled="updating" :loading="retrieving" placeholder="Give your questionnaire a name">Title</text-field>
 
             <v-switch v-model="internalSalary" class="wfc" :disabled="updating || retrieving" :loading="retrieving" label="Query salary" hide-details inset dense />
@@ -179,8 +179,8 @@ export default Vue.extend({
     max-width: 430px;
 }
 
-:deep(.v-text-field) {
+:deep(.text-field) {
     width: 430px !important;
-    max-width: 430px !important;
+    max-width: min(100%, 430px) !important;
 }
 </style>
