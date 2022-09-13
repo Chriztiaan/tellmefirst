@@ -68,7 +68,7 @@ export default {
     // 	baseURL: '/',
     // },
     router: {
-        base: '/leave/'
+        base: '/tellmefirst/'
     },
 
     // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
