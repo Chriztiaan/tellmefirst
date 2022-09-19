@@ -57,9 +57,9 @@ export default {
         // '@nuxtjs/axios',
     ],
 
-    router: {
-        base: '/tellmefirst/'
-    },
+    // router: {
+    //     base: '/tellmefirst/'
+    // },
 
     // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
     vuetify: {
