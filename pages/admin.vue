@@ -36,6 +36,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Answers from '@/components/pages/admin/answers.vue';
+import Dashboard from '@/components/pages/admin/dashboard.vue';
+import Profile from '@/components/pages/admin/profile.vue';
+import Questions from '@/components/pages/admin/questions.vue';
 
 enum Page {
     dashboard,
@@ -45,6 +49,7 @@ enum Page {
 }
 
 export default Vue.extend({
+    components: { Questions, Answers, Profile, Dashboard },
     layout: 'admin',
     data() {
         return {
